@@ -1,0 +1,16 @@
+{
+  "servers": [
+    {
+      "client_version": 1,
+      "addrs": [
+        "127.0.0.1:9000"
+      ]
+    },
+    {
+      "client_version": 2,
+      "addrs": [
+        "127.0.0.1:9000"
+      ]
+    }
+  ]
+}
