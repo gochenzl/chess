@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package center;
+
+message ConnInfo
+{
+  uint32 userid = 1;
+  uint32 gateid = 2;
+  uint32 connid = 3;
+}
+
+//添加连接信息
+message AddConnInfoReq 
+{
+  ConnInfo info = 1;
+}
+
+message AddConnInfoResp
+{
+}
+
+//删除连接信息
+message DelConnInfoReq 
+{
+  uint32 gateid = 1;
+  uint32 connid = 2;
+}
+
+message DelConnInfoResp
+{
+}
+
+//根据gateid删除连接信息
+message DelConnInfoByGateidReq 
+{
+  uint32 gateid = 1;
+}
+
+message DelConnInfoByGateidResp
+{
+}
+
+//获取所有的连接信息
+message GetAllConnInfoReq 
+{
+}
+
+message GetAllConnInfoResp
+{
+  repeated ConnInfo infos = 1;
+}
+
+//新增连接信息通知
+message NewConnInfoNotify 
+{
+  ConnInfo info = 1;
+}
+
+//删除连接信息通知
+message DelConnInfoNotify 
+{
+  ConnInfo info = 1;
+}
+
+//根据gateid删除连接信息通知
+message DelConnInfoByGateidNotify 
+{
+  uint32 gateid = 1;
+}
+

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package pb_log;
+
+message UserLog
+{
+  uint32 uid = 1;
+  int32 event = 2;
+  string time = 3;
+}
+
+

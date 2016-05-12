@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package table;
+
+message TableInfo
+{
+  int64 id = 1;
+  int32 roomid = 2;
+  int32 version = 3;
+  bool is_set_timer = 4;
+  bytes game_info = 5;
+  repeated uint32 userids = 6[packed=true];
+}
+
+message TimerInfo
+{
+  int32 duration = 1;  // 时长，单位秒
+}
+
+message EnterRoomReq
+{
+  int32 roomid = 1;
+  uint32 userid = 2;
+}
+
+message EnterRoomResp
+{
+  int32 result = 1;
+  int32 roomid = 2;         //  正在配桌的时候返回
+  int64 tableid = 3;        // 正在其他桌子游戏中的时候返回
+  TableInfo table_info = 4; // 重新进入桌子时返回
+}
+
+message ExitRoomReq
+{
+  uint32 userid = 1;
+}
+
+message ExitRoomResp
+{
+  int32 result = 1;
+  int64 tableid = 2; // 正在游戏中的时候返回
+}
+
+message UpdateTableInfoReq
+{
+  int64 id = 1;
+  int32 version = 2;
+  bytes game_info = 3;
+  bool game_over = 4;
+  TimerInfo timer_info = 5;
+}
+
+message UpdateTableInfoResp
+{
+  int32 result = 1;
+  TableInfo table_info = 2; // 更新冲突时才有值
+}
+
+message QueryTableInfoReq
+{
+  int64 id = 1;
+}
+
+message QueryTableInfoResp
+{
+  int32 result = 1;
+  TableInfo table_info = 2;
+}
+
+message QueryByUseridReq
+{
+  uint32 userid = 1;
+}
+
+message QueryByUseridResp
+{
+  int32 roomid = 1;
+  int64 tableid = 2;
+}

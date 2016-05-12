@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package pb_user;
+
+message BasicInfo
+{
+  string nickname = 1;
+  string sex = 2;
+  int64  imageid = 3;
+}
+
+

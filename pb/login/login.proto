@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package login;
+
+message LoginReq
+{
+  string username = 1; // 用户名，如果为空，则注册新账号
+  string password = 2; // 密码
+  int32 version = 3;   // 客户端版本
+}
+
+message LoginResp
+{
+  int32 result = 1;     // 结果码
+  string username = 2;  // 用户名
+  uint32 userid = 3;    // 游戏id
+  string game_addr = 4; // 游戏服务器地址
+  string token = 5;     // 用于登录游戏服务器
+}
+
+
+

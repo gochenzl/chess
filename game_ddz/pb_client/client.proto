@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package pb_client;
+
+
+message UserInfo
+{
+  uint32 userid  = 1;
+  string nickname = 2;
+}
+
+message LoginReq
+{
+  string token = 1;
+}
+
+message LoginResp
+{
+  UserInfo user_info = 1;
+}
+
+message SendMessageReq
+{
+  uint32 receiver = 1;
+  string content = 2;
+}
+
+message SendMessageResp
+{
+}
+
+message MessageNotify
+{
+  uint32 sender = 1;
+  string content = 2;
+}
+
